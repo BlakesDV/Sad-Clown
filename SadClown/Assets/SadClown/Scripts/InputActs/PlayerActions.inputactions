@@ -1,0 +1,34 @@
+{
+    "name": "PlayerActions",
+    "maps": [
+        {
+            "name": "Explode",
+            "id": "e1d2ddd6-df35-4905-8798-601bfe96efee",
+            "actions": [
+                {
+                    "name": "Pinch",
+                    "type": "Button",
+                    "id": "a57e6af9-b625-4503-9e58-cbcdc6d74d8f",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "62821f52-6185-4a42-bc19-72d3bf7e19d5",
+                    "path": "<Keyboard>/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pinch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
