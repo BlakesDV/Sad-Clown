@@ -19,6 +19,8 @@ public class Exploder : MonoBehaviour
     private PlayerInput playerInput;
     bool isPinMoving;
 
+    public bool hasWon;
+
     public GameObject idleEyes;
     public GameObject idleMouth;
     public GameObject worriedEyes;
@@ -93,13 +95,13 @@ public class Exploder : MonoBehaviour
     }
     private IEnumerator WinSequence()
     {
+        hasWon = true;
         SetFaceState("Sad");
         WinningAssets();
 
         yield return new WaitForSeconds(1f);
         winPanel.SetActive(true);
         enabled = false;
-        yield return new WaitForSeconds(2f);
         Time.timeScale = 0f;
     }
 

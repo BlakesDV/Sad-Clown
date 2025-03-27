@@ -7,6 +7,7 @@ public class Timer : MonoBehaviour
     public float timer = 6;
     public TextMeshProUGUI numbersDisplayed;
     public GameObject gameOverPanel;
+    public Exploder exploder;
 
     void Update()
     {
@@ -14,7 +15,7 @@ public class Timer : MonoBehaviour
 
         numbersDisplayed.text = Mathf.Ceil(timer).ToString();
 
-        if (timer <= 0)
+        if (timer <= 0 && !exploder.hasWon)
         {
             GameOver();
         }
