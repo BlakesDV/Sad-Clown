@@ -14,11 +14,15 @@ public class Timer : MonoBehaviour
         timer -= Time.deltaTime;
 
         numbersDisplayed.text = Mathf.Ceil(timer).ToString();
-
-        if (timer <= 0 && !exploder.hasWon)
+        if (timer <= 0)
         {
             GameOver();
         }
+        if (!exploder.hasWon)
+        {
+            Time.timeScale = 0f;
+        }
+        
     }
 
     private void GameOver()
