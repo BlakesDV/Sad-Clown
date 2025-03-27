@@ -28,6 +28,7 @@ public class Exploder : MonoBehaviour
     public GameObject confetti;
     public GameObject popOnomatopeya;
     public GameObject explodedBalloon;
+    public GameObject balloonAsset;
 
     private void Start()
     {
@@ -35,7 +36,7 @@ public class Exploder : MonoBehaviour
         state = State.Idle;
         isPinMoving = false;
         SetFaceState("Idle");
-        StartCoroutine(ChangeFaceAfterTime(2f));
+        //StartCoroutine(ChangeFaceAfterTime(2f));
     }
     void Update()
     {
@@ -86,6 +87,7 @@ public class Exploder : MonoBehaviour
         if (collision.CompareTag("Balloon"))
         {
             Debug.Log("on trigger tag");
+            speed = 0f;
             StartCoroutine(WinSequence());
         }
     }
@@ -94,15 +96,18 @@ public class Exploder : MonoBehaviour
         SetFaceState("Sad");
         WinningAssets();
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         winPanel.SetActive(true);
         enabled = false;
+        yield return new WaitForSeconds(2f);
+        Time.timeScale = 0f;
     }
-    private IEnumerator ChangeFaceAfterTime(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        SetFaceState("Worried");
-    }
+
+    //private IEnumerator ChangeFaceAfterTime(float delay)
+    //{
+    //    yield return new WaitForSeconds(delay);
+    //    SetFaceState("Worried");
+    //}
 
     private void SetFaceState(string state)
     {
@@ -131,6 +136,7 @@ public class Exploder : MonoBehaviour
     }
     private void WinningAssets()
     {
+        if (balloonAsset != null)  balloonAsset.SetActive(false);
         if (confetti != null)  confetti.SetActive(true);
         if (popOnomatopeya != null)  popOnomatopeya.SetActive(true);
         if (explodedBalloon != null)  explodedBalloon.SetActive(true);
