@@ -516,12 +516,15 @@ MonoBehaviour:
   speed: 150
   idleDistance: 25
   idleSpeed: 60
-  idleEyes: {fileID: 21300000, guid: 7bfa1f5221930924083c76e553234987, type: 3}
-  idleMouth: {fileID: 21300000, guid: 3dd541a15c3f60042a944ee8e176c721, type: 3}
-  worriedEyes: {fileID: 21300000, guid: 19d23b08c27d1914085ec39fcd743e40, type: 3}
-  worriedMouth: {fileID: 21300000, guid: 5a633389ca406514db34657866781cd4, type: 3}
-  sadEyes: {fileID: 21300000, guid: 00225b685a5d4234a94ec840e3821957, type: 3}
-  sadMouth: {fileID: 21300000, guid: f1c8f545e0149fe4a85b56d56cafbcc8, type: 3}
+  idleEyes: {fileID: 1174430335}
+  idleMouth: {fileID: 391962184}
+  worriedEyes: {fileID: 928994370}
+  worriedMouth: {fileID: 2145396150}
+  sadEyes: {fileID: 1231820108}
+  sadMouth: {fileID: 1189911874}
+  confetti: {fileID: 108280508}
+  popOnomatopeya: {fileID: 148750879}
+  explodedBalloon: {fileID: 2056811964}
 --- !u!58 &449851466
 CircleCollider2D:
   m_ObjectHideFlags: 0

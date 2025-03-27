@@ -25,6 +25,9 @@ public class Exploder : MonoBehaviour
     public GameObject worriedMouth;
     public GameObject sadEyes;
     public GameObject sadMouth;
+    public GameObject confetti;
+    public GameObject popOnomatopeya;
+    public GameObject explodedBalloon;
 
     private void Start()
     {
@@ -62,8 +65,8 @@ public class Exploder : MonoBehaviour
                 {
                     state = State.Moving;
                     isPinMoving = true;
-                    SetFaceState("Action");
-                    Debug.Log("si");
+                    SetFaceState("Worried");
+                    Debug.Log("se mueve");
                 }
             }
         }
@@ -82,13 +85,14 @@ public class Exploder : MonoBehaviour
     {
         if (collision.CompareTag("Balloon"))
         {
-            Debug.Log("ontrigger");
+            Debug.Log("on trigger tag");
             StartCoroutine(WinSequence());
         }
     }
     private IEnumerator WinSequence()
     {
-        SetFaceState("Collision");
+        SetFaceState("Sad");
+        WinningAssets();
 
         yield return new WaitForSeconds(2f);
         winPanel.SetActive(true);
@@ -97,7 +101,7 @@ public class Exploder : MonoBehaviour
     private IEnumerator ChangeFaceAfterTime(float delay)
     {
         yield return new WaitForSeconds(delay);
-        SetFaceState("Action");
+        SetFaceState("Worried");
     }
 
     private void SetFaceState(string state)
@@ -115,14 +119,20 @@ public class Exploder : MonoBehaviour
                 idleEyes.SetActive(true);
                 idleMouth.SetActive(true);
                 break;
-            case "Action":
+            case "Worried":
                 worriedEyes.SetActive(true);
                 worriedMouth.SetActive(true);
                 break;
-            case "Collision":
+            case "Sad":
                 sadEyes.SetActive(true);
                 sadMouth.SetActive(true);
                 break;
         }
+    }
+    private void WinningAssets()
+    {
+        if (confetti != null)  confetti.SetActive(true);
+        if (popOnomatopeya != null)  popOnomatopeya.SetActive(true);
+        if (explodedBalloon != null)  explodedBalloon.SetActive(true);
     }
 }
